@@ -10,7 +10,7 @@ const userRoutes = require("./routes/auth")
 
 const app = express()
 
-app.use(cors())
+app.use(cors({ origin: "https://dish-covery-delta.vercel.app/" }))
 app.use(express.json())
 
 mongoose.connect(MONGODB_URI)
@@ -18,9 +18,6 @@ mongoose.connect(MONGODB_URI)
     console.log("MongoDB connected successfully");
 })
 .catch(err => console.log("MongoDB connection failed", err));
-
-app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
 
 app.post("/api/auth/register", registerUser);
 app.post("/api/auth/login", loginUser);
