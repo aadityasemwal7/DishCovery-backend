@@ -9,7 +9,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 const app = express();
 
-app.use(cors({ origin: "https://dish-covery-delta.vercel.app/" }));
+app.use(cors({ origin: "https://dish-covery-delta.vercel.app" }));
 app.use(express.json());
 
 mongoose.connect(MONGODB_URI)
